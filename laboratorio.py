@@ -10,9 +10,9 @@
 # 1.1 Carga de Librerías
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 import matplotlib.ticker as ticker
-import os
+import os   
 import sys
 
 # Asegurar soporte de emojis en terminales de Windows

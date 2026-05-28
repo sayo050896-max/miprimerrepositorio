@@ -9,7 +9,6 @@ import numpy as np
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
-
 # ──────────────────────────────────────────────
 # Configuración de la página
 # ──────────────────────────────────────────────
@@ -77,7 +76,7 @@ with st.sidebar:
 st.divider()
 
 # ──────────────────────────────────────────────
-# FASE 2: Variables Cualitativas (mejorada con Seaborn)
+# FASE 2: Variables Cualitativas 
 # ──────────────────────────────────────────────
 st.header(f"📋 Fase 2 — Variable Cualitativa: `{col_cualitativa}`")
 
@@ -96,7 +95,6 @@ with col1:
 with col2:
     st.subheader("Gráfico de Barras")
 
-    # Si hay muchas categorías, permitir al usuario filtrar cuántas mostrar
     if len(freq_cual) > 15:
         top_n = st.slider(
             f"Hay muchas categorías ({len(freq_cual)}). Selecciona cuántas mostrar:",
@@ -151,12 +149,9 @@ st.divider()
 # ──────────────────────────────────────────────
 st.header(f"📋 Fase 3 — Variable Discreta: `{col_discreta}`")
 
-# Detectamos si la variable es una variable de identificación única
-# (cuando el número de categorías únicas es igual al número total de datos)
 num_datos = len(df)
 num_valores_unicos = df[col_discreta].nunique()
 
-# Red de seguridad: si es un ID, mostramos una advertencia en lugar del gráfico
 if num_valores_unicos == num_datos:
     st.warning(
         f"🚨 **¡Atención!** Has seleccionado la columna `{col_discreta}`. "
@@ -164,7 +159,6 @@ if num_valores_unicos == num_datos:
     )
     st.info("💡 **Consejo:** Un gráfico de bastón no es útil para variables de identificación. Ve a la barra lateral y selecciona una variable numérica que tenga valores que se repitan (como `edad`, `nota`, etc.).")
 else:
-    # SI NO ES UN ID, procedemos con el gráfico normal:
     
     freq_disc = df[col_discreta].value_counts().sort_index().reset_index()
     freq_disc.columns = [col_discreta, "Fi"]
