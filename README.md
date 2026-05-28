@@ -28,18 +28,27 @@ python -m venv venv
 source venv/bin/activate
 
 # 3. Instalar las librerías necesarias
-pip install pandas numpy matplotlib
+pip install pandas numpy matplotlib plotly
 ```
 
 > ⚠️ Sabrás que está activado porque verás `(venv)` al inicio de tu terminal.
 
 ---
 
-## ▶️ PASO 1 — Ejecutar el laboratorio
+## ▶️ OPCIÓN A — Script en consola
 
 ```bash
 python laboratorio.py
 ```
+
+## 🌐 OPCIÓN B — Dashboard interactivo con Streamlit
+
+```bash
+pip install streamlit
+streamlit run app.py
+```
+
+Se abrirá automáticamente en tu navegador en `http://localhost:8501`
 
 ---
 

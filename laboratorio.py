@@ -13,6 +13,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import os
+import sys
+
+# Asegurar soporte de emojis en terminales de Windows
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+
 
 print("=" * 60)
 print("  LABORATORIO: PROCESAMIENTO ESTADÍSTICO CON PYTHON")
@@ -96,6 +102,7 @@ print(f"  Amplitud (c)      = {amplitud}  →  ⌈{rango}/{k}⌉")
 lim_inf  = df["edad"].min()
 lim_sup  = lim_inf + k * amplitud
 bins     = np.arange(lim_inf, lim_sup + amplitud, amplitud)
+bins[-1] += 0.0001
 
 df["intervalo"] = pd.cut(df["edad"], bins=bins, right=False, include_lowest=True)
 df["marca_clase"] = df["intervalo"].apply(lambda x: (x.left + x.right) / 2)
