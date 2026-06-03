@@ -18,13 +18,13 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("📊 Laboratorio: Procesamiento Estadístico con Python")
-st.caption("Materia: Estadística Descriptiva — Guía de Laboratorio")
+st.title("📊 Procesamiento Estadístico con Python")
+st.caption("Estadística Descriptiva ")
 
 # ──────────────────────────────────────────────
 # FASE 1: Ingesta de datos
 # ──────────────────────────────────────────────
-st.header("📂 Fase 1 — Ingesta de Datos")
+st.header("📂 Ingesta de Datos")
 
 archivo = st.file_uploader(
     "Sube tu archivo CSV (o usa el dataset de muestra)",
@@ -49,7 +49,7 @@ st.dataframe(df, use_container_width=True, height=220)
 # Selección de columnas (sidebar)
 # ──────────────────────────────────────────────
 with st.sidebar:
-    st.header("⚙️ Configuración")
+    st.header("⚙️ Menu Configuracion")
 
     cols_objeto = [c for c in df.select_dtypes(include="object").columns]
     cols_num    = [c for c in df.select_dtypes(include=["int64", "float64"]).columns]
@@ -78,7 +78,7 @@ st.divider()
 # ──────────────────────────────────────────────
 # FASE 2: Variables Cualitativas 
 # ──────────────────────────────────────────────
-st.header(f"📋 Fase 2 — Variable Cualitativa: `{col_cualitativa}`")
+st.header(f"📋 cualitativa variable: `{col_cualitativa}`")
 
 freq_cual = df[col_cualitativa].value_counts().reset_index()
 freq_cual.columns = [col_cualitativa, "Fi"]
@@ -147,7 +147,7 @@ st.divider()
 # ──────────────────────────────────────────────
 # FASE 3: Variable Cuantitativa Discreta
 # ──────────────────────────────────────────────
-st.header(f"📋 Fase 3 — Variable Discreta: `{col_discreta}`")
+st.header(f"📋  Variable CuantitativaDiscreta: `{col_discreta}`")
 
 num_datos = len(df)
 num_valores_unicos = df[col_discreta].nunique()
@@ -235,7 +235,7 @@ st.divider()
 # ──────────────────────────────────────────────
 # FASE 4: Datos Agrupados — Algoritmo de Sturges
 # ──────────────────────────────────────────────
-st.header(f"📋 Fase 4 — Datos Agrupados (Sturges): `{col_agrupada}`")
+st.header(f"📋 Datos Agrupados (Sturges): `{col_agrupada}`")
 
 n        = len(df)
 k        = int(np.ceil(1 + 3.322 * np.log10(n)))
@@ -352,7 +352,7 @@ st.divider()
 # ──────────────────────────────────────────────
 # FASE 5: Gráfico de Torta
 # ──────────────────────────────────────────────
-st.header(f"📋 Fase 5 — Gráfico de Torta: `{col_cualitativa}`")
+st.header(f"📋 Gráfico de Torta: `{col_cualitativa}`")
 
 col7, col8 = st.columns([1.2, 1])
 

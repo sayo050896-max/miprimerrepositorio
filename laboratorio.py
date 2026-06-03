@@ -5,9 +5,6 @@
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FASE 1: Preparación del Entorno e Ingesta de Datos
-# ─────────────────────────────────────────────────────────────────────────────
-
-# 1.1 Carga de Librerías
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
