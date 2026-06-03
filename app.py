@@ -12,17 +12,9 @@ st.set_page_config(
     page_icon="📊",
     layout="wide",
 )
-
-# ──────────────────────────────────────────────────────────────
-# CSS del sidebar  (compatible con modo oscuro y claro)
-# ──────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-/* ══════════════════════════════════════════════════════════
-   VARIABLES DE COLOR — cambian según el tema de Streamlit
-   ══════════════════════════════════════════════════════════ */
 
-/* Modo oscuro (tema por defecto en tu captura) */
 [data-theme="dark"] [data-testid="stSidebar"],
 .stApp[data-theme="dark"] [data-testid="stSidebar"] {
     --sb-bg:          #1A1F2E;
